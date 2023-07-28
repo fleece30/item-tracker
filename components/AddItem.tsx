@@ -63,7 +63,7 @@ const AddItem: React.FC<AddItemProps> = ({}) => {
           <select
             defaultValue={"Abhishek"}
             onChange={(e) => setBroughtBy(e.target.value)}
-            className="px-7 py-4"
+            className="px-7 py-4 rounded-2xl"
           >
             <option value="Abhishek">Abhishek</option>
             <option value="Pratham">Pratham</option>
