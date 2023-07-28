@@ -1,0 +1,17 @@
+type Item {
+  broughtBy: String!
+  cost: Int!
+  id: ID!
+  name: String!
+}
+
+"""The mutation root type."""
+type Mutation {
+  createItem(broughtBy: String!, cost: Int!, name: String!): Item!
+  deleteItem(id: String!): Item!
+}
+
+"""The query root type."""
+type Query {
+  items: [Item!]!
+}
