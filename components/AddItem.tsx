@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TextInput from "../components/TextInput";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
+import apollo from "../lib/apollo";
 
 interface AddItemProps {}
 
@@ -31,8 +32,9 @@ const AddItem: React.FC<AddItemProps> = ({}) => {
         cost: cost,
       },
     })
-      .then(() => {
+      .then(async () => {
         alert("Item added successfully!");
+        await apollo.refetchQueries({ include: "active" });
       })
       .catch(() => console.log(itemName, cost, broughtBy));
   };
