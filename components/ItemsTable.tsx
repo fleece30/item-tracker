@@ -32,7 +32,6 @@ const ItemsQuery = gql`
   }
 `;
 const ItemsTable: React.FC<ItemsTableProps> = ({}) => {
-  // const [itemData, setItemData] = useState(data);
   const [deleteMutation] = useMutation(DeleteMutation);
   const { loading, error, data, refetch } = useQuery(ItemsQuery);
 
@@ -70,7 +69,12 @@ const ItemsTable: React.FC<ItemsTableProps> = ({}) => {
               <td>{item.name}</td>
               <td>{item.cost}</td>
               <td>{item.broughtBy}</td>
-              <td onClick={() => handleDelete(item.id)}>&#9249;</td>
+              <td
+                className="cursor-pointer text-4xl"
+                onClick={() => handleDelete(item.id)}
+              >
+                &#9249;
+              </td>
             </tr>
           );
         })}
